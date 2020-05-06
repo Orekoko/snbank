@@ -1,0 +1,11 @@
+Staff 1:
+Username: bayuu
+Password: bayuu123
+Email: bayoadekanbi@gmail.com
+Full Name: Bayo Adekanbi
+
+Staff 2:
+Username: sholastica
+Password: sholastica123
+Email: sholabadmus@gmail.com
+Full Name: Shola Badmus
