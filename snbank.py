@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 
 
 while True:
@@ -11,7 +12,7 @@ while True:
 	if (login_choice == '2'):
 		break
 		
-	while (login_choice == '1'):
+	else:
 		print('Welcome back! Login by entering your username and password below')
 		username = input("Enter your username and press 'enter' key to proceed: ")
 		password = input("Enter your password and press 'enter' key to proceed: ")
@@ -21,15 +22,15 @@ while True:
 		while (username != (staff_details['Staff 1']['Username']) or password != (staff_details['Staff 1']['Password'])) and (username != (staff_details['Staff 2']['Username']) or password != (staff_details['Staff 2']['Password'])) :
 			username = input("Wrong username or password, Enter your username again: ")
 			password = input("Enter your password : ")
-		else:
-			login = datetime.now()
-			login = login.strftime("%d:%m:%Y %H:%M:%S")
-			session_data = {
-			    'Present User': username,
-			    'Login Time': login,
-			}
-			with open('user_session.txt', 'w') as file_object:
-				json.dump(session_data, file_object)
+	
+	login = datetime.now()
+	login = login.strftime("%d:%m:%Y %H:%M:%S")
+	session_data = {
+	    'Present User': username,
+	    'Login Time': login,
+	}
+	with open('user_session.txt', 'w') as file_object:
+		json.dump(session_data, file_object)
 			
 		
 	
