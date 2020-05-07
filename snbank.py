@@ -22,7 +22,14 @@ while True:
 			username = input("Wrong username or password, Enter your username again: ")
 			password = input("Enter your password : ")
 		else:
-			print('xxxxxxxcccccxxxx')
+			login = datetime.now()
+			login = login.strftime("%d:%m:%Y %H:%M:%S")
+			session_data = {
+			    'Present User': username,
+			    'Login Time': login,
+			}
+			with open('user_session.txt', 'w') as file_object:
+				json.dump(session_data, file_object)
 			
 		
 	
