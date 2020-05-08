@@ -62,7 +62,7 @@ while True: # main program loop
 		
 	# for if user selects create account	
 		if banking_choice == '1':
-			print('\nI will be needing some data from you, so as to create an account for you\n')
+			print('\nI will be needing some data from you, so as to create an account for you!\n')
 			numbers = '0123456789'
 			account_name = input("Enter an account name of your choice (Its best to use your firstname and lastname): ")
 			
