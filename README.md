@@ -71,3 +71,5 @@ The program terminates
 *The README.md file:* [README.md](https://github.com/Orekoko/snbank/blob/master/README.md)
 
 *The session file is always deleted when the staff logs out*
+
+***PS: I uploaded an empty customer.txt file as per assignment instructions. When program is run, the appropriate data will be written to it***
