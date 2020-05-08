@@ -1,4 +1,6 @@
-# snbank
+# snbank  
+
+_______________________________________
 
 ###### This repo is an assignment for start.ng python 4th task.
 
