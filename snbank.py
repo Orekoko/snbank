@@ -5,17 +5,17 @@ from datetime import datetime
 
 
 while True:
-	print('Welcome to Start.ng-Python-Task4 Bank')
+	print('*** WELCOME TO START.NG PYTHON-TASK4 BANK LTD ***')
 	print('Please enter 1 or 2 as shown below:')
 	login_choice = input("\t1 - Staff Login\n\t2 - Close App\n\t\t")
 	while (login_choice != '1') and (login_choice != '2'):
-		login_choice = input('Enter the correct input (1 or 2): ')
+		login_choice = input('Please enter the correct input (1 or 2): ')
 		
 	if (login_choice == '2'):
 		break
 		
 	else:
-		print('Welcome back! Login by entering your username and password below')
+		print('\nWelcome back! Login by entering your username and password below')
 		username = input("Enter your username and press 'enter' key to proceed: ")
 		password = input("Enter your password and press 'enter' key to proceed: ")
 		
@@ -34,40 +34,42 @@ while True:
 	with open('user_session.txt', 'w') as file_object:
 		json.dump(session_data, file_object)
 	
-	print('Hello ' + username + '! what do you want to do? Enter 1, 2 or 3 to choose (see options below)')
+	print('\nHello ' + username + '! what do you want to do? Enter 1, 2 or 3 to choose (see options below):')
 		
 	while True:
 		banking_choice = input("\t1 - Create new bank account\n\t2 - Check Account Details\n\t3 - Logout\n\t\t")
 		
 		while (banking_choice != '1') and (banking_choice != '2') and (banking_choice != '3'):
-			banking_choice = input('Wrong input enter 1, 2, or 3: ')
+			banking_choice = input('Wrong input please enter 1, 2, or 3: ')
 		if banking_choice == '3':
 			os.remove('user_session.txt')
+			print()
 			break
 			
 		if banking_choice == '1':
-			print('I will be needing some data from you, so as to create an account for you')
+			print('\nI will be needing some data from you, so as to create an account for you\n')
 			numbers = '0123456789'
 			account_name = input("Enter an account name of your choice (Its best to use your firstname and lastname): ")
 			while True:
 				try:
-					opening_balance = float(input("\nEnter your opening amount. Just enter numbers only dont worry about putting the currency symbol, You'll get the type of account next: "))
+					opening_balance = float(input("\nEnter your opening amount. Just enter numbers only dont worry about putting the currency symbol or comma (you'll be asked for the type of account next): "))
+					opening_balance = '{:.2f}'.format(opening_balance)
 				except ValueError:
 					print('Wrong Input!')
 					continue
 				else:
 					break
 			account_type = input("\nEnter the account type, enter like eg: 'Naira Savings Account', eg: 'Dollar Current Account': ")
-			account_email = input("\nEnter the email address you want to associated with your account: ")
+			account_email = input("\nEnter the email address you want to be associated with your account: ")
 			account_number = ''.join(random.choices(numbers, k=10))
 			
 			customer_file_data = []
 			customer_banking_data = {
 			    username: [
 			        {
-			            'Account Name': account_name,
+			            'Account Name': account_name.title(),
 			            'Opening Balance': opening_balance,
-			            'Account Type': account_type,
+			            'Account Type': account_type.title(),
 			            'Account email': account_email,
 			            'Account Number': account_number,
 			        }
@@ -77,20 +79,20 @@ while True:
 				customer_file_data.append(customer_banking_data)
 				with open('customer.txt', 'w') as file_obj:
 					json.dump(customer_file_data, file_obj)
-				print(customer_banking_data[username][0]['Account Name'] + ' this is your account number: ' + customer_banking_data[username][0]['Account Number'])
-				print('So what do you want to do next? Enter 1, 2 or 3 to choose: ')
+				print('\n>>>\t'+ customer_banking_data[username][0]['Account Name'] + ', this is your account number: ' + customer_banking_data[username][0]['Account Number'])
+				print('\nSo what do you want to do next? Enter 1, 2 or 3 to choose: ')
 			else:
 				with open('customer.txt') as file_obj:
 					data = json.load(file_obj)
 				data.append(customer_banking_data)
 				with open('customer.txt', 'w') as file_obj:
 					json.dump(data, file_obj)
-				print(customer_banking_data[username][0]['Account Name'] + ' this is your account number: ' + customer_banking_data[username][0]['Account Number'])
-				print('So what do you want to do next? Enter 1, 2 or 3 to choose: ')
+				print('\n' + customer_banking_data[username][0]['Account Name'] + ' this is your account number: ' + customer_banking_data[username][0]['Account Number'])
+				print('\nSo what do you want to do next? Enter 1, 2 or 3 to choose: ')
 			continue
 		
 		if banking_choice == '2':
-			collect_acct_no = input('Enter your account number so as to fetch your account details (please ensure you enter correctly: ')
+			collect_acct_no = input('\nEnter your account number so as to fetch your account details (please ensure you enter correctly: ')
 			check_account = {'Account Number': collect_acct_no,}
 			
 			with open('customer.txt') as file_obj:
@@ -103,9 +105,11 @@ while True:
 							found_flag = True
 							print('\nAccount Found ! See details below:')
 							for key, value in user_details.items():
-								print('\n' + key + ' : ' + str(value))
+								print('\n\t' + key + ' : ' + str(value))
+							print('\nSo what do you want to do next? Enter 1, 2 or 3 to choose:')
+							continue
 								
 			if found_flag == False:
-				print('Account Not Found! You can register a new one if you wish')
+				print('\nAccount Not Found! You can register a new one if you wish. Choose by entering 1, 2 or 3 as shown below')
 				continue
 	
