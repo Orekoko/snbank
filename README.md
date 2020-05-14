@@ -50,8 +50,8 @@ All the details above will then be saved in the customer.txt file
 The program will ask the staff to enter the account number 
 
 Then the program will check the entered account number with the contents of the customer.txt file.  
-+If found, the program will fetch the details of the account and display it to the staff.  
-+If not found, the program will inform the staff and show him the options above to choose from.
++ If found, the program will fetch the details of the account and display it to the staff.  
++ If not found, the program will inform the staff and show him the options above to choose from.
 
 #### Instead if the staff selects 'log out'
 
